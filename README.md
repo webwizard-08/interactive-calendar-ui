@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🗓️ Wall Calendar
 
 Hey! Welcome to the Wall Calendar project. This is an interactive calendar you can use right in your browser — no sign-up, no backend, nothing to install except the project itself.
@@ -128,3 +129,7 @@ npm run start
 ---
 
 Built as a Frontend Engineering Challenge. The goal was to make something that feels genuinely polished — not just functional, but enjoyable to use.
+=======
+# interactive-calendar-ui
+A responsive wall-calendar inspired interactive calendar built with Next.js and React featuring date range selection, local notes, and adaptive layouts.
+>>>>>>> 9d502a99940f9999c0c6b888a3b48ceb907fbada

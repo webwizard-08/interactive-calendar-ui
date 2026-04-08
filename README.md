@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗓️ Wall Calendar
 
-## Getting Started
+Hey! Welcome to the Wall Calendar project. This is an interactive calendar you can use right in your browser — no sign-up, no backend, nothing to install except the project itself.
 
-First, run the development server:
+It looks and feels like a real physical wall calendar, but with smooth animations, theme switching, dark mode, and a notes section built right in.
+
+---
+
+## What can it do?
+
+Here's a quick rundown of everything packed into this one component:
+
+**Pick a date range**
+Click any date to set your start. Click another to set your end. The days in between light up automatically. Hover over dates before clicking to preview your selection.
+
+**Write notes**
+There are two note areas — one for the whole month, and one that attaches to whatever date range you've selected. Both save automatically to your browser so they're still there when you come back.
+
+**Switch themes**
+Three themes to choose from — Alpine (blue), Coast (teal), and Sunset (orange). Each one changes the background, colors, and the floating dots in the background.
+
+**Dark mode**
+Hit the toggle in the top right. A circle sweeps across the screen as it switches — it's a small detail but it feels nice.
+
+**Holiday markers**
+Indian public holidays show up as a small pulsing red dot on the calendar. Hover over the date to see the name.
+
+---
+
+## Getting it running
+
+You'll need Node.js installed. Then:
 
 ```bash
+# 1. Clone the project
+git clone <your-repo-url>
+cd calender
+
+# 2. Install packages
+npm install
+
+# 3. Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) and you're good to go.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How the project is organized
 
-## Learn More
+```
+calender/
+├── public/
+│   └── hero.svg          ← the image at the top of the calendar
+├── src/
+│   └── app/
+│       ├── page.tsx      ← everything lives here (calendar, notes, themes)
+│       ├── layout.tsx    ← sets up fonts and the page wrapper
+│       └── globals.css   ← all the colors, themes, and animations
+└── package.json
+```
 
-To learn more about Next.js, take a look at the following resources:
+It's intentionally kept simple — one page, one CSS file, no extra folders.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech used
 
-## Deploy on Vercel
+- **Next.js 16** — the React framework
+- **React 19** — for building the UI
+- **TypeScript** — keeps the code predictable
+- **Tailwind CSS v4** — for styling
+- **Fraunces** — the serif heading font
+- **Space Grotesk** — the body font
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+No database. No API. Your notes are saved in `localStorage` — they live in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Want to customize it?
+
+**Add your own holidays**
+
+Open `src/app/page.tsx` and find the `HOLIDAYS` object near the top. Add entries like this:
+
+```ts
+"02-14": "Valentine's Day",
+"10-31": "Halloween",
+```
+
+The format is `"MM-DD": "Holiday Name"`.
+
+**Swap the hero image**
+
+Drop your image into the `public/` folder and update this line in `page.tsx`:
+
+```tsx
+<Image src="/your-image.jpg" ... />
+```
+
+Any format works — jpg, png, webp, svg.
+
+**Add a new theme**
+
+1. Add a new id to the `Theme` type in `page.tsx`
+2. Add it to the `THEMES` array with a label and emoji
+3. Add its colors in `globals.css` following the same pattern as the existing themes
+
+---
+
+## A few things worth knowing
+
+- The calendar always shows 6 rows (42 cells) regardless of the month — blank cells fill the gaps
+- The week starts on Monday
+- All your notes and preferences (theme, dark mode) are remembered between visits via `localStorage`
+- The floating dots in the background are drawn on an HTML Canvas — they change color with the theme
+
+---
+
+## Running in production
+
+```bash
+npm run build
+npm run start
+```
+
+---
+
+Built as a Frontend Engineering Challenge. The goal was to make something that feels genuinely polished — not just functional, but enjoyable to use.

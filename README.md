@@ -70,7 +70,6 @@ It's intentionally kept simple — one page, one CSS file, no extra folders.
 
 - **Next.js 16** — the React framework
 - **React 19** — for building the UI
-- **TypeScript** — keeps the code predictable
 - **Tailwind CSS v4** — for styling
 - **Fraunces** — the serif heading font
 - **Space Grotesk** — the body font
@@ -128,8 +127,6 @@ npm run start
 
 ---
 
-Built as a Frontend Engineering Challenge. The goal was to make something that feels genuinely polished — not just functional, but enjoyable to use.
-=======
 # interactive-calendar-ui
 A responsive wall-calendar inspired interactive calendar built with Next.js and React featuring date range selection, local notes, and adaptive layouts.
 >>>>>>> 9d502a99940f9999c0c6b888a3b48ceb907fbada
